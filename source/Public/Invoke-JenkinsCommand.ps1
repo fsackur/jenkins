@@ -188,7 +188,7 @@ function Invoke-JenkinsCommand
                 -MaximumRedirection 0 `
                 @PSBoundParameters `
                 -ErrorAction SilentlyContinue `
-                -ErrorVariable RequestErrors
+                -ErrorVariable RequestErrors -WebSession $JenkinsCrumbSession
 
             if ($RequestErrors.Count -eq 1 -and $result.StatusCode -eq 302 `
                     -and $RequestErrors[0].FullyQualifiedErrorId -like "MaximumRedirectExceeded,*")

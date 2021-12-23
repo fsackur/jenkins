@@ -48,7 +48,7 @@ function Get-JenkinsCrumb
         $Result = Invoke-WebRequest `
             -Uri $FullUri `
             -Headers $Headers `
-            -ErrorAction Stop
+            -ErrorAction Stop -SessionVariable Global:JenkinsCrumbSession
     }
     catch
     {
